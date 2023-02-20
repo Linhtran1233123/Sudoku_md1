@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="sudoku.css">
+<body >
+<div id="blur1">
+<div>
+    <div id="head"><span >SUDOKU</span></div>
+    <div class="myselect">
+        <p><b>Lựa chọn độ khó:</b></p>
+    <select id="sel" onchange=" level()">
+        <option>Dễ</option>
+        <option>Trung Bình</option>
+        <option>Khó</option>
+        <option>Rất Khó</option>
+    </select>
+    </div>
+    <div id="mytime"><span id="solvingtime"></span></div>
+    <div class="button3" id="pause" ><button  onclick="pauseTime()"><img id="pause1" src="pause1.png" width="15px" height="15px" alt="error"></button></div>
+    <div class="mysudoku" id="sudoku"></div>
+    <div class="button2">
+        <button class="button1" onclick="popup()"> Trò chơi mới</button><br><br>
+        <button class="button1" onclick="resetTable()"> Chơi lại màn này</button><br><br>
+        <button class="button1 mysmarteye" id="smarteye" onclick="findError()"> Tự động tìm lỗi</button><br><br>
+        <button class="button1 " onclick="getHint()"> Gợi ý</button><br><br>
+        <button class="button1 " onclick="showKeyboard()"> Hiện/Ẩn bàn phím nổi</button>
+    </div>
+    <div class ="modal" id="mymodal">
+      <div class="modal-content">
+          <p><span>!!!CẢNH BÁO!!!:Nếu bạn đang có phần chơi chưa hoàn thành bạn,sẽ mất tiến độ trò chơi hiện tại</span>.Bạn có muốn tiếp tục không?</p>
+          <br>
+          <button class="button1" onclick="createTable()"> CHƠi MỚI</button>
+          <button class="button1" onclick="hidePopup()"> KHÔNG</button>
+      </div>
+    </div>
+
+    <table class="tb2" id="mytb2">
+        <tr>
+            <td><input type="button" value="1" onclick="nhap(this.value)"></td>
+            <td><input type="button" value="2" onclick="nhap(this.value)"></td>
+            <td><input type="button" value="3" onclick="nhap(this.value)"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="nhap(this.value)"></td>
+            <td><input type="button" value="5" onclick="nhap(this.value)"></td>
+            <td><input type="button" value="6" onclick="nhap(this.value)"></td>
+        </tr>
+        <tr>
+        <td><input type="button" value="7" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="8" onclick="nhap(this.value)"></td>
+        <td><input type="button" value="9" onclick="nhap(this.value)"></td>
+    </tr>
+        <tr >
+            <td colspan="3"><input id="delbutton" type="button" value="delete" onclick="xoa()"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+</div>
+<button class="button1 mycomplete"  onclick="completeSudoku()">Hoàn thành</button>
+<div class="Complete" id="Complete1"><div class="Complete-content">
+    <p>Chúc mừng bạn đã hoàn thành phần chơi.Vui lòng nhập thông tin người chơi để cập nhật kết quả </p>
+    <input id="name" onchange="addWinner()" type="text" placeholder="Nguyễn Văn A"><br><br>
+    <input type="button" onclick="Xacnhan()" value="Xác nhận">
+</div></div></div>
+<div class="Continue" id="Continue1"><input alt="" onclick="continuePlay()" type="image" src="play-button.png" ></div>
+</body>
+<script src="sudoku.js"></script>
+<!--<script src="scoreTable.js"></script>-->
+</html>
